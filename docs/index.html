@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<script src="js/vue.min.js"></script>
+<script src="js/axios.min.js"></script>
+<link rel="stylesheet" href="css/vue-tabs.min.css">
+<script src="js/vue-tabs.min.js"></script>
+
+<!-- Icon insertions -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="theme-color" content="#ffffff">
+</head>
+<div id="app">
+  <nav class="navbar navbar-light bg-dark">
+    <span class ="nav navbar-nav navbar-left">
+      <img src="imgs/hdi_logo_white.png" height="60" alt="">
+    </span>
+    <span class="navbar-text nav navbar-nav navbar-center">
+        <font color="#e6e6e6" class="text-center"><h1>ビッグデータ処理</h1><h6>2019年度冬学期</h6></font>
+      </span>
+      <span class="nav navbar-nav navbar-right">
+      <a class="btn btn-sm btn-outline-secondary" href="index_en.html"><font color="#e6e6e">English</font></a>
+      <a class="btn btn-outline-success" href="index.html">日本語</a>
+    </span>
+  </nav>
+    <div class="container">
+      <vue-tabs class="mt-5">
+        <v-tab title="コース資料">
+              <h2 class="card-header">コース資料</h2>
+              <span class="float-left"><font size="4">&nbsp&nbsp<a href="http://133.5.19.187/pgadmin4" target="_blank">Database Admin Page (PostgreSQL)</a>&nbsp&nbsp&nbsp|&nbsp&nbsp<a href="http://133.5.19.187/phpMyAdmin" target="_blank">Database Admin Page (MySQL)</a>&nbsp&nbsp&nbsp|&nbsp&nbsp<a href="http://133.5.19.187:8080" target="_blank">JupyterHub</a>
+              </font></span>
+              <span class="align-middle">
+              <table class="table">
+                  <thead class="thead-light">
+                  <th>コース日程</th>
+                  <th>講義番号</th>
+                  <th>講義回数</th>
+                  <th>資料リンク</th>
+                  <th>直接ダウンロード</th>
+                  </thead>
+                  <tbody v-cloak>
+                  <tr v-for="link in links">
+                      <td>{{link.lecture_date}}</td>
+                      <td>{{link.lecture_serial}}</td>
+                      <td>{{link.lecture_week}}</td>
+                      <td><a :href="link.material_link">Week {{link.lecture_week}} Sample Notebook</a></td>
+                      <td><a :href="link.local_link">Week {{link.lecture_week}} Sample Zip File</a></td>
+                  </tr>
+                  </tbody>
+              </table>
+                  </span>
+        </v-tab>
+        <v-tab title="インストールファイル">
+              <h2 class="card-header">インストールファイル</h2>
+              <table class="table">
+                  <thead class="thead-light">
+                  <th>ソフトウェア</th>
+                  <th>プラットフォーム</th>
+                  <th>ファイル</th>
+                  <th>説明</th>
+                  <th>MD5</th>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>Anaconda3</td>
+                      <td>Windows X64</td>
+                      <td><a href="files/Anaconda3-2019.10-Windows-x86_64.exe">Anaconda3 For Windows</a></td>
+                      <td>Anaconda3のインストールファイル, Windows X64 システムのみ (462 MB)</td>
+                      <td>fafcdbf5feb6dc3081bf07cbb8af1dbe</td>
+                  </tr>
+                  <tr>
+                      <td>Anaconda3</td>
+                      <td>MacOS</td>
+                      <td><a href="files/Anaconda3-2019.10-MacOSX-x86_64.pkg">Anaconda3 For Mac</a></td>
+                      <td>Anaconda3のインストールファイル, MacOS システムのみ (654 MB)</td>
+                      <td>5b051bf25188cd4bdcb7794f5bea6886</td>
+                  </tr>
+                  <tr>
+                      <td>PostgreSQL</td>
+                      <td>Windows X64</td>
+                      <td><a href="files/postgresql-12.1-1-windows-x64.exe">PostgreSQL For Windows</a></td>
+                      <td>PostgreSQLのインストールファイル, Windows X64 システムのみ (187 MB)</td>
+                      <td>55766472e1c4b8ce9b87232903ccbdab</td>
+                  </tr>
+                  <tr>
+                      <td>PostgreSQL</td>
+                      <td>MacOS</td>
+                      <td><a href="files/postgresql-12.1-1-osx.dmg">PostgreSQL For Mac</a></td>
+                      <td>PostgreSQLのインストールファイル, MacOS システムのみ </td>
+                      <td>958a1bb7e76c7b1f139cfdead55352db</td>
+                  </tr>
+                  <tr>
+                      <td>QGIS</td>
+                      <td>Windows X64</td>
+                      <td><a href="files/QGIS-OSGeo4W-3.4.15-1-Setup-x86_64.exe">QGIS For Windows</a></td>
+                      <td>Installation file for QGIS, Windows X64 system only</td>
+                      <td>9adc7afa9ab919b7695b431f49491537</td>
+                  </tr>
+                  <tr>
+                      <td>QGIS</td>
+                      <td>MacOS</td>
+                      <td><a href="files/qgis-macos-ltr.dmg">QGIS For Mac</a></td>
+                      <td>Installation file for QGIS, MacOS only</td>
+                      <td>da7fd59c65791672af53a1152e336e14</td>
+                  </tr>
+                  </tbody>
+              </table>
+              <br>
+              <a href="https://docs.anaconda.com/anaconda/install/uninstall/">
+                  <h4 class="card-bottom">Anaconda環境を削除するの手順</h4>
+  (オプションBをお勧めします)</a>
+        </v-tab>
+        <v-tab title="データセット">
+              <h2 class="card-header">データセット</h2>
+              <table class="table">
+                  <thead class="thead-light">
+                  <th>ソース</th>
+                  <th>最終更新</th>
+                  <th>ファイル</th>
+                  <th>説明</th>
+                  <th>MD5</th>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>MovieLens Datasets - Small</td>
+                      <td>9/2018</td>
+                      <td><a href="files/ml-latest-small.zip">Local</a></td>
+                      <td>100,000 ratings and 3,600 tag applications applied to 9,000 movies by 600 users. (956 KB)</td>
+                      <td>31a303aabbc519bd33d025e44d6c2570</td>
+                  </tr>
+                  <tr>
+                      <td rowspan="2">MovieLens Datasets - Full</td>
+                      <td rowspan="2">9/2018</td>
+                      <td><a href="files/ml-latest.zip">Local</a></td>
+                      <td rowspan="2">27,000,000 ratings and 1,100,000 tag applications applied to 58,000 movies by 280,000 users. Includes tag genome data with 14 million relevance scores across 1,100 tags. (265 MB)</td>
+                      <td rowspan="2">90ed04363d9554206faa113da1175238</td>
+                  </tr>
+                  <tr><td><a href="http://files.grouplens.org/datasets/movielens/ml-latest.zip">Network</a></td></tr>
+                  <tr>
+                    <td>塗分け用ポリゴンデータ</td>
+                    <td>01/2020</td>
+                    <td><a href="files/402303fukuokaitoshima.geojson" download>Local</a></td>
+                    <td>N/A</td>
+                    <td>101d5ed9e95816ca324df658056c5077</td>
+                  </tr>
+                  <tr>
+                    <td>街区別人口データ</td>
+                    <td>01/2020</td>
+                    <td><a href="files/402303fukuokaitoshima.xlsx" download>Local</a></td>
+                    <td>N/A</td>
+                    <td>c5fa211c6327ee425b1c9eb347dcea61</td>
+                  </tr>
+                  <tr>
+                    <td>街区別人口データ CSV</td>
+                    <td>01/2020</td>
+                    <td><a href="files/402303fukuokaitoshima.csv" download>Local</a></td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                  </tr>
+                  <tr>
+                    <td>指定避難場．指定緊急避難場所一覧</td>
+                    <td>01/2020</td>
+                    <td><a href="files/hinanzyo201808.csv">Local</a></td>
+                    <td>N/A</td>
+                    <td>42bc03a167eb24961613e99b0176cc64</td>
+                  </tr>
+                  </tbody>
+              </table>
+        </v-tab>
+          <v-tab title="使い方">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td><a href="jupyter_howto.html" target="_blank"><font size="4">How to use cloud environment/クラウド環境の使い方</font></a></td>
+                </tr>
+                <tr>
+                    <td><a href="phpmyadmin_howto.html" target="_blank"><font size="4">How to use Database Admin System (MySQL)/データベース管理システムの使い方 (MySQL)</font></a></td>
+                </tr>
+                <tr>
+                    <td><a href="pgadmin_howto.html" target="_blank"><font size="4">How to use Database Admin System (pgAdmin4)/データベース管理システムの使い方 (pgAmin4)</font></a></td>
+                </tr>
+                </tbody>
+            </table>
+
+                </v-tab>
+    </vue-tabs>
+    </div>
+</div>
+
+<script>
+    Vue.config.devtools = true;
+    var vm = new Vue({
+        el: '#app',
+        data: {
+          links:[]
+        },
+        created: function () {
+            this.inIt();
+        },
+        methods: {inIt: function () {
+          axios.get('material_links.json')
+              .then(function (response) {
+                  vm.links = response.data;
+              })
+        }
+      }
+    });
+</script>

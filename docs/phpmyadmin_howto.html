@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<script src="js/vue.min.js"></script>
+<script src="js/axios.min.js"></script>
+<link rel="stylesheet" href="css/vue-tabs.min.css">
+<script src="js/vue-tabs.min.js"></script>
+
+<!-- Icon insertions -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<div id="app">
+  <nav class="navbar navbar-light bg-dark">
+    <a class="navbar-brand navbar-left" href="#">
+      <img src="imgs/hdi_logo_white.png" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <span class="navbar-text nav navbar-nav navbar-center">
+        <font color="#e6e6e6" class="text-center"><h1>BIG DATA PROCESSING</h1><h6>Winter 2019</h6></font>
+      </span>
+      <span class="nav navbar-nav navbar-right">
+      <a class="btn btn-outline-success" href="#">English</a>
+      <a class="btn btn-outline-success" href="#">日本語</a>
+    </span>
+  </nav>
+<div class="container">
+  <!-- Page Content -->
+
+  <div class="row">
+
+    <!-- Post Content Column -->
+
+      <!-- Title -->
+      <div class="well span6">
+      <h2 class="mt-4">How to use phpMyAdmin　phpMyAdminの使い方</h2>
+      <h1 class="mt-4"></h1>
+
+
+      <hr>
+
+
+
+      <!-- Post Content -->
+      <p class="lead">Use the GUI management interface for MySQL DBMS</p>
+      <p class="lead">MySQL DBMSのGUI管理インターフェイスを使用する</p>
+      <hr>
+      <h3>Login  ログイン</h3>
+
+      <p>You can either enter URL <a href="http://133.5.19.187/phpMyAdmin" target="_blank">http://133.5.19.187/phpMyAdmin</a> directly or click on "Database Admin Page (MySQL)" on theCourse Material page as shown below.</p>
+      <p>URL <a href="http://133.5.19.187/phpMyAdmin" target="_blank">http://133.5.19.187/phpMyAdmin</a> を直接入力するか、以下に示すように、コース資料ページの[Database Admin Page (MySQL)]をクリックします。</p>
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src="imgs/gotophpmyadmin.png" width="800px" alt="">
+
+      <p>The username is your student ID with all the letters in <font color="red">UPPER</font> case</p>
+      <p>ユーザー名は、すべての文字が<font color="red">大文字</font>の学籍番号です。</p>
+      <p>The default password we've created for you is: <font color="red">bdp2019w</font>. You can change it later by yourself.</p>
+      <p>作成したデフォルトのパスワードは<font color="red"> bdp2019w </font>です。 後で自分で変更できます。</p>
+      <p>You can also select your favorite language, for this instruction, we'll use the Japanese interface.</p>
+      <p>お気に入りの言語を選択することできますかが、この使い方では、日本語のインターフェイスを使用します。</P>
+      <img class="img-fluid rounded" src="imgs/login_myadmin.png" width="500px" alt="">
+      <hr>
+
+      <h3>Use GUI to query the database　GUIを使用してデータベースを照会する</h3><br />
+      <p class="lead">Interface basics</p>
+      <p class="lead">インタフェースの基礎</p>
+      <p>After you log in to your account, a database with your student ID will show up on the left.</p>
+      <p>アカウントにログインすると、左側に学籍番号と同じのデータベースが表示されます。</p>
+      <img class="img-fluid rounded" src="imgs/step1.png" width="800px" alt="">
+      <p>Select it will give an overview of your database, since this is a new database, no table is available.</p>
+      <p>これを選択すると、データベースの概要が表示されます。これは新しいデータベースなので、テーブルがありません。</p>
+      <p>We will teach you how to create a table as well as how to insert some data in the next section.</p>
+      <p>次のセクションでは、テーブルの作成方法とデータの挿入方法を説明します。</p>
+        <img class="img-fluid rounded" src="imgs/step2.png" width="800px" alt="">
+      <hr>
+      <p class="lead">Create the table and insert some data</p>
+      <p class="lead">テーブルを作成し、データを挿入します</p>
+      <p>Click on the SQL button on the right panel, and it will take you to the SQL interface.</p>
+      <p>右側のパネルの[SQL]ボタンをクリックすると、SQLインターフェイスに移動します。</p>
+      <p>Here, we input our query and hit the execute button.</p>
+      <p>ここで、クエリを入力し、実行ボタンを押します。</p>
+      <pre><code>
+CREATE TABLE sample(
+    NO INTEGER PRIMARY KEY,
+    NAME VARCHAR(50),
+    price INTEGER
+);
+
+INSERT INTO sample VALUES(1001,'orange',50);
+INSERT INTO sample VALUES(1002,'apple',90);
+INSERT INTO sample VALUES(1003,'banana',50);</code></pre>
+      <img class="img-fluid rounded" src="imgs/step4.png" width="800px" alt="">
+      <p>If you see this screen, this means that you've successfully created the table and inserted the data.</p>
+      <p>この画面が表示された場合、これはテーブルが正常に作成され、データが挿入されたことを意味します。</P>
+      <img class="img-fluid rounded" src="imgs/step5.png" width="800px" alt="">
+      <hr>
+      <h3>Data selection  データ選択</h3><br />
+      <p class="lead">Next, let's confirm that we have data injected into the database.</p>
+      <p class="lead">次に、データベースにデータがあることを確認しましょう。</p>
+      <p>Select the table "sample" from left, and as previous, click on the SQL button on the right panel.</P>
+        <p>左から「sample」テーブルを選択し、前と同じように、右パネルの[SQL]ボタンをクリックします。</P>
+        <p>Let's input the select query into the text box and execute it as we've done before.</p>
+        <p>選択クエリを入力し、前と同じように実行します。</p>
+        <pre><code>SELECT * from `sample`;</code></pre>
+      <img class="img-fluid rounded" src="imgs/step7.png" width="800px" alt="">
+      <p>If all goes well, you should have the screen shown below:</p>
+      <p>すべてうまくいけば、次の画面が表示されます。</p>
+      <img class="img-fluid rounded" src="imgs/step8.png" width="600px" alt="">
+      <hr>
+      <br>
+      <h3>Conclusion and future steps</h3>
+      <h3>まとめ</h3>
+      <br>
+      <p>Congratulations! You've now learned the basics of dealing with a database. We recommend you to explore other options and queries to get familiar with it.</p>
+      <p>おめでとうございます！ これで、データベースを扱うための基本を学びました。 他のオプションやクエリを調べて、それをやってみるをお勧めします。</p>
+      <p>Also, since the databases are primarily accessed by programs, we recommend you go and check the <a href="http://133.5.19.187">3rd week's materials</a>. There, we will teach you how to do the basic query in python.</p>
+      <p>また、データベースには主にプログラムからアクセスするため、<a href="http://133.5.19.187">3週目の資料</a>を確認することをお勧めします。 そこで、Pythonで基本的なクエリを実行する方法を説明します。</P>
+      <h2><font color="#0080FF">Have fun in programming, we'll see you next time.</font></h2>
+      <br>
+      <hr>
+</div>
+</div>
+</div>
+</body>

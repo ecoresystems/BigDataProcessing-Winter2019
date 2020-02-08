@@ -1,0 +1,18 @@
+[
+    {
+        "Link_Id": "2",
+        "lecture_date": "2019-12-17",
+        "lecture_serial": "3",
+        "lecture_week": "3",
+        "material_link": "http:\/\/133.5.19.187:8080\/hub\/user-redirect\/git-pull?repo=https%3A%2F%2Fgithub.com%2Fecoresystems%2FBigDataProcessing-Winter2019&subPath=Week3&app=notebook",
+        "local_link":"notebooks\/Week3.zip"
+    },
+    {
+        "Link_Id": "4",
+        "lecture_date": "2019-12-03",
+        "lecture_serial": "1",
+        "lecture_week": "1",
+        "material_link": "http:\/\/133.5.19.187:8080\/hub\/user-redirect\/git-pull?repo=https%3A%2F%2Fgithub.com%2Fecoresystems%2FBigDataProcessing-Winter2019&subPath=Week1&app=notebook",
+        "local_link":"notebooks\/Week1.zip"
+    }
+]
